@@ -1,0 +1,35 @@
+import random
+import sys
+
+InfLim = -20 # O(1)
+SupLim = 20 # O(1)
+#InfLim = -sys.minsize # O(1)
+#SupLim = sys.maxsize # O(1)
+
+doorPosition = random.randint(InfLim, SupLim) # O(1)
+inicialPosition = random.randint(InfLim, SupLim) # O(1)
+currentPosition = inicialPosition # O(1)
+found = False # O(1)
+print(doorPosition,inicialPosition ) # O(1)
+
+
+count = 1 # O(1)
+while found == False : # O(2n)
+  if(currentPosition == doorPosition): # O(1)
+    print('A porta está na posicao ' + str(currentPosition)) # O(1)
+    found = True # O(1)
+  else:
+      for num in range(count): # O(1)
+        currentPosition = currentPosition + 1 # O(1)
+        if(currentPosition == doorPosition): # O(1)
+          print('A porta está na posicao ' + str(currentPosition)) # O(1)
+          found = True # O(1)
+          exit()
+      for num in range(count * 2): # O(2n)
+        currentPosition = currentPosition - 1 # O(1)
+        if(currentPosition == doorPosition): # O(1)
+          print('A porta está na posicao ' + str(currentPosition)) # O(1)
+          found = True # O(1)
+          exit()
+
+      count = count * 2 # O(1)
